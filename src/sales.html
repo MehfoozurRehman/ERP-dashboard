@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <script>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        // axisX: {
+        //   valueFormatString: "DD MMM,YY",
+        // },
+        // axisY: {
+        //   title: "Temperature (in °C)",
+        //   suffix: " °C",
+        // },
+        legend: {
+          cursor: "pointer",
+          fontSize: 16,
+          itemclick: toggleDataSeries,
+        },
+        toolTip: {
+          shared: true,
+        },
+        data: [
+          {
+            // name: "Myrtle Beach",
+            type: "spline",
+            // yValueFormatString: "#0.## °C",
+            showInLegend: false,
+            dataPoints: [
+              { x: new Date(2017, 6, 24), y: 31 },
+              { x: new Date(2017, 6, 25), y: 31 },
+              { x: new Date(2017, 6, 26), y: 29 },
+              { x: new Date(2017, 6, 27), y: 29 },
+              { x: new Date(2017, 6, 28), y: 31 },
+              { x: new Date(2017, 6, 29), y: 30 },
+              { x: new Date(2017, 6, 30), y: 29 },
+            ],
+          },
+        ],
+      });
+      chart.render();
+
+      function toggleDataSeries(e) {
+        if (
+          typeof e.dataSeries.visible === "undefined" ||
+          e.dataSeries.visible
+        ) {
+          e.dataSeries.visible = false;
+        } else {
+          e.dataSeries.visible = true;
+        }
+        chart.render();
+      }
+    };
+  </script>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <a href="index.html" class="sidebar__entry active">
+          <div class="sidebar__entry__icon">
+            <svg
+              viewBox="0 0 512 512"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m197.332031 170.667969h-160c-20.585937 0-37.332031-16.746094-37.332031-37.335938v-96c0-20.585937 16.746094-37.332031 37.332031-37.332031h160c20.589844 0 37.335938 16.746094 37.335938 37.332031v96c0 20.589844-16.746094 37.335938-37.335938 37.335938zm-160-138.667969c-2.941406 0-5.332031 2.390625-5.332031 5.332031v96c0 2.945313 2.390625 5.335938 5.332031 5.335938h160c2.945313 0 5.335938-2.390625 5.335938-5.335938v-96c0-2.941406-2.390625-5.332031-5.335938-5.332031zm0 0"
+              />
+              <path
+                d="m197.332031 512h-160c-20.585937 0-37.332031-16.746094-37.332031-37.332031v-224c0-20.589844 16.746094-37.335938 37.332031-37.335938h160c20.589844 0 37.335938 16.746094 37.335938 37.335938v224c0 20.585937-16.746094 37.332031-37.335938 37.332031zm-160-266.667969c-2.941406 0-5.332031 2.390625-5.332031 5.335938v224c0 2.941406 2.390625 5.332031 5.332031 5.332031h160c2.945313 0 5.335938-2.390625 5.335938-5.332031v-224c0-2.945313-2.390625-5.335938-5.335938-5.335938zm0 0"
+              />
+              <path
+                d="m474.667969 512h-160c-20.589844 0-37.335938-16.746094-37.335938-37.332031v-96c0-20.589844 16.746094-37.335938 37.335938-37.335938h160c20.585937 0 37.332031 16.746094 37.332031 37.335938v96c0 20.585937-16.746094 37.332031-37.332031 37.332031zm-160-138.667969c-2.945313 0-5.335938 2.390625-5.335938 5.335938v96c0 2.941406 2.390625 5.332031 5.335938 5.332031h160c2.941406 0 5.332031-2.390625 5.332031-5.332031v-96c0-2.945313-2.390625-5.335938-5.332031-5.335938zm0 0"
+              />
+              <path
+                d="m474.667969 298.667969h-160c-20.589844 0-37.335938-16.746094-37.335938-37.335938v-224c0-20.585937 16.746094-37.332031 37.335938-37.332031h160c20.585937 0 37.332031 16.746094 37.332031 37.332031v224c0 20.589844-16.746094 37.335938-37.332031 37.335938zm-160-266.667969c-2.945313 0-5.335938 2.390625-5.335938 5.332031v224c0 2.945313 2.390625 5.335938 5.335938 5.335938h160c2.941406 0 5.332031-2.390625 5.332031-5.335938v-224c0-2.941406-2.390625-5.332031-5.332031-5.332031zm0 0"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Dashboard</div>
+        </a>
+        <a href="human_resources.html" class="sidebar__entry">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Human Resource</div>
+        </a>
+        <a href="inventory.html" class="sidebar__entry active">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Inventory</div>
+        </a>
+        <a href="tendering.html" class="sidebar__entry">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Tendering</div>
+        </a>
+        <a href="account.html" class="sidebar__entry active">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Account</div>
+        </a>
+        <a href="engineering.html" class="sidebar__entry">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Engineering</div>
+        </a>
+        <a href="settings.html" class="sidebar__entry active">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Settings</div>
+        </a>
+        <a href="#" class="sidebar__entry">
+          <div class="sidebar__entry__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20.567 20.567"
+              fill="currentColor"
+            >
+              <path
+                id="Icon_awesome-user-alt"
+                data-name="Icon awesome-user-alt"
+                d="M10.283,11.569A5.784,5.784,0,1,0,4.5,5.784,5.786,5.786,0,0,0,10.283,11.569Zm5.142,1.285H13.212a6.993,6.993,0,0,1-5.857,0H5.142A5.141,5.141,0,0,0,0,18v.643a1.929,1.929,0,0,0,1.928,1.928H18.639a1.929,1.929,0,0,0,1.928-1.928V18A5.141,5.141,0,0,0,15.425,12.854Z"
+              />
+            </svg>
+          </div>
+          <div class="sidebar__entry__label">Settings</div>
+        </a>
+      </div>
+      <div class="main">
+        <div class="topbar">
+          <div class="topbar__left">
+            <div class="topbar__subheading">Welcome!</div>
+            <div class="topbar__heading">Sales</div>
+          </div>
+        </div>
+        <div class="main__content">
+          <div class="main__content__row">
+            <div class="main__content__col main__content__col__right">
+              <div class="main__content__row" style="margin-bottom: 4em">
+                <div class="graph__card">
+                  <div class="graph__card__left">STATISTICS</div>
+                  <div class="graph__card__middle">
+                    <div class="graph__card__middle__content">
+                      <div class="graph__card__middle__subheading">
+                        Total Sales
+                      </div>
+                      <div class="graph__card__middle__heading">72.593</div>
+                    </div>
+                    <div class="graph__card__middle__content">
+                      <div class="graph__card__middle__subheading">
+                        This week
+                      </div>
+                      <div class="graph__card__middle__heading">9.307</div>
+                    </div>
+                    <div class="graph__card__middle__content">
+                      <div class="graph__card__middle__subheading">Today</div>
+                      <div class="graph__card__middle__heading">1.328</div>
+                    </div>
+                  </div>
+                  <div class="graph__card__right">
+                    <div
+                      id="chartContainer"
+                      style="height: 300px; width: 100%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="main__content__row">
+                <div class="main__content__col main__content__col__right">
+                  <a class="feature__card">
+                    <div class="feature__card__badge">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 37.461 45.187"
+                        fill="currentColor"
+                      >
+                        <g id="hammer" transform="translate(-43.769)">
+                          <g
+                            id="Group_2964"
+                            data-name="Group 2964"
+                            transform="translate(57.771 13.262)"
+                          >
+                            <g id="Group_2963" data-name="Group 2963">
+                              <rect
+                                id="Rectangle_618"
+                                data-name="Rectangle 618"
+                                width="10.612"
+                                height="4.646"
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_2966"
+                            data-name="Group 2966"
+                            transform="translate(57.771 20.56)"
+                          >
+                            <g
+                              id="Group_2965"
+                              data-name="Group 2965"
+                              transform="translate(0)"
+                            >
+                              <path
+                                id="Path_9213"
+                                data-name="Path 9213"
+                                d="M202.425,232.959v19.32a5.306,5.306,0,1,0,10.613,0v-19.32Z"
+                                transform="translate(-202.425 -232.959)"
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_2968"
+                            data-name="Group 2968"
+                            transform="translate(43.769)"
+                          >
+                            <g
+                              id="Group_2967"
+                              data-name="Group 2967"
+                              transform="translate(0)"
+                            >
+                              <path
+                                id="Path_9214"
+                                data-name="Path 9214"
+                                d="M75.146,0l-.311.114L70.649,1.648l-.072-.036L67.383,0,59.1,0A14.938,14.938,0,0,0,44.4,12.216l-.633,3.426s3.988-3.612,4.842-4.149a11.458,11.458,0,0,1,9.16-.846l10.613-.031,2.264-1.647,4.487,1.647h6.1V0Z"
+                                transform="translate(-43.769)"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="feature__card__heading">
+                      <span>Tendering</span>
+                      <div class="feature__card__heading__border"></div>
+                    </div>
+                    <div class="feature__card__content">
+                      54 Tenders in Progress
+                    </div>
+                  </a>
+                </div>
+                <div class="main__content__col">
+                  <a class="feature__card">
+                    <div class="feature__card__badge">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 37.461 45.187"
+                        fill="currentColor"
+                      >
+                        <g id="hammer" transform="translate(-43.769)">
+                          <g
+                            id="Group_2964"
+                            data-name="Group 2964"
+                            transform="translate(57.771 13.262)"
+                          >
+                            <g id="Group_2963" data-name="Group 2963">
+                              <rect
+                                id="Rectangle_618"
+                                data-name="Rectangle 618"
+                                width="10.612"
+                                height="4.646"
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_2966"
+                            data-name="Group 2966"
+                            transform="translate(57.771 20.56)"
+                          >
+                            <g
+                              id="Group_2965"
+                              data-name="Group 2965"
+                              transform="translate(0)"
+                            >
+                              <path
+                                id="Path_9213"
+                                data-name="Path 9213"
+                                d="M202.425,232.959v19.32a5.306,5.306,0,1,0,10.613,0v-19.32Z"
+                                transform="translate(-202.425 -232.959)"
+                              />
+                            </g>
+                          </g>
+                          <g
+                            id="Group_2968"
+                            data-name="Group 2968"
+                            transform="translate(43.769)"
+                          >
+                            <g
+                              id="Group_2967"
+                              data-name="Group 2967"
+                              transform="translate(0)"
+                            >
+                              <path
+                                id="Path_9214"
+                                data-name="Path 9214"
+                                d="M75.146,0l-.311.114L70.649,1.648l-.072-.036L67.383,0,59.1,0A14.938,14.938,0,0,0,44.4,12.216l-.633,3.426s3.988-3.612,4.842-4.149a11.458,11.458,0,0,1,9.16-.846l10.613-.031,2.264-1.647,4.487,1.647h6.1V0Z"
+                                transform="translate(-43.769)"
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="feature__card__heading">
+                      <span>Tendering</span>
+                      <div class="feature__card__heading__border"></div>
+                    </div>
+                    <div class="feature__card__content">
+                      54 Tenders in Progress
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="main__content__col">
+              <div class="main__content__row">
+                <div class="main__content__col">
+                  <div
+                    class="main__content__row"
+                    style="margin-bottom: 4em; min-height: 350px"
+                  >
+                    <a
+                      class="feature__card inventory__card__red"
+                      style="justify-content: center !important"
+                    >
+                      <div
+                        class="feature__card__badge"
+                        style="
+                          position: relative !important;
+                          left: auto;
+                          right: auto;
+                          background-color: #feacc6 !important;
+                        "
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 37.461 45.187"
+                          fill="currentColor"
+                        >
+                          <g id="hammer" transform="translate(-43.769)">
+                            <g
+                              id="Group_2964"
+                              data-name="Group 2964"
+                              transform="translate(57.771 13.262)"
+                            >
+                              <g id="Group_2963" data-name="Group 2963">
+                                <rect
+                                  id="Rectangle_618"
+                                  data-name="Rectangle 618"
+                                  width="10.612"
+                                  height="4.646"
+                                />
+                              </g>
+                            </g>
+                            <g
+                              id="Group_2966"
+                              data-name="Group 2966"
+                              transform="translate(57.771 20.56)"
+                            >
+                              <g
+                                id="Group_2965"
+                                data-name="Group 2965"
+                                transform="translate(0)"
+                              >
+                                <path
+                                  id="Path_9213"
+                                  data-name="Path 9213"
+                                  d="M202.425,232.959v19.32a5.306,5.306,0,1,0,10.613,0v-19.32Z"
+                                  transform="translate(-202.425 -232.959)"
+                                />
+                              </g>
+                            </g>
+                            <g
+                              id="Group_2968"
+                              data-name="Group 2968"
+                              transform="translate(43.769)"
+                            >
+                              <g
+                                id="Group_2967"
+                                data-name="Group 2967"
+                                transform="translate(0)"
+                              >
+                                <path
+                                  id="Path_9214"
+                                  data-name="Path 9214"
+                                  d="M75.146,0l-.311.114L70.649,1.648l-.072-.036L67.383,0,59.1,0A14.938,14.938,0,0,0,44.4,12.216l-.633,3.426s3.988-3.612,4.842-4.149a11.458,11.458,0,0,1,9.16-.846l10.613-.031,2.264-1.647,4.487,1.647h6.1V0Z"
+                                  transform="translate(-43.769)"
+                                />
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="feature__card__heading">
+                        <span style="color: #ffffff !important">Customers</span>
+                        <div
+                          class="feature__card__heading__border"
+                          style="background-color: #feacc6 !important"
+                        ></div>
+                      </div>
+                      <div
+                        class="feature__card__content"
+                        style="color: #ffffff !important; font-size: 35px"
+                      >
+                        445
+                      </div>
+                    </a>
+                  </div>
+                  <div class="main__content__row">
+                    <a class="feature__card">
+                      <div class="feature__card__badge">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 37.461 45.187"
+                          fill="currentColor"
+                        >
+                          <g id="hammer" transform="translate(-43.769)">
+                            <g
+                              id="Group_2964"
+                              data-name="Group 2964"
+                              transform="translate(57.771 13.262)"
+                            >
+                              <g id="Group_2963" data-name="Group 2963">
+                                <rect
+                                  id="Rectangle_618"
+                                  data-name="Rectangle 618"
+                                  width="10.612"
+                                  height="4.646"
+                                />
+                              </g>
+                            </g>
+                            <g
+                              id="Group_2966"
+                              data-name="Group 2966"
+                              transform="translate(57.771 20.56)"
+                            >
+                              <g
+                                id="Group_2965"
+                                data-name="Group 2965"
+                                transform="translate(0)"
+                              >
+                                <path
+                                  id="Path_9213"
+                                  data-name="Path 9213"
+                                  d="M202.425,232.959v19.32a5.306,5.306,0,1,0,10.613,0v-19.32Z"
+                                  transform="translate(-202.425 -232.959)"
+                                />
+                              </g>
+                            </g>
+                            <g
+                              id="Group_2968"
+                              data-name="Group 2968"
+                              transform="translate(43.769)"
+                            >
+                              <g
+                                id="Group_2967"
+                                data-name="Group 2967"
+                                transform="translate(0)"
+                              >
+                                <path
+                                  id="Path_9214"
+                                  data-name="Path 9214"
+                                  d="M75.146,0l-.311.114L70.649,1.648l-.072-.036L67.383,0,59.1,0A14.938,14.938,0,0,0,44.4,12.216l-.633,3.426s3.988-3.612,4.842-4.149a11.458,11.458,0,0,1,9.16-.846l10.613-.031,2.264-1.647,4.487,1.647h6.1V0Z"
+                                  transform="translate(-43.769)"
+                                />
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="feature__card__heading">
+                        <span>Tendering</span>
+                        <div class="feature__card__heading__border"></div>
+                      </div>
+                      <div class="feature__card__content">
+                        54 Tenders in Progress
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="main__content__col">b</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+</html>
