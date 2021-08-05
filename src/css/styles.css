@@ -199,6 +199,7 @@ a {
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   margin-right: 3em;
+  height: fit-content;
 }
 .sidebar__entry {
   display: flex;
